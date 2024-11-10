@@ -1,7 +1,6 @@
 import styles from './Footer.module.css'
 
 const date = new Date()
-console.log(date)
 const ano = date.getFullYear()
 
 const Footer = () => {
