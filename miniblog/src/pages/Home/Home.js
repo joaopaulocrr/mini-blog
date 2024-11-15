@@ -2,11 +2,13 @@
 import styles from './Home.module.css'
 
 //hooks
-import { useNavigate, Link } from "react-router-dom"
+import { useNavigate, Link, Navigate } from "react-router-dom"
 import { useState } from 'react'
 import { useFetchDocuments } from '../../hooks/useFetchDocuments'
 
+
 //components
+import PostDetail from '../../components/PostDetail'
 
 const Home = () => {
 
@@ -17,12 +19,15 @@ const Home = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
+    if(query) {
+      return Navigate(`/search?q=${query}`)
+    }
 
   }
 
   return (
     <div className={styles.home}>
-      <h1>Veja nossos posta mais recents</h1>
+      <h1>Veja nossos posts mais recentes</h1>
 
     <form className={styles.search_form} onSubmit={handleSubmit}>
       <input type='text' placeholder='Ou busque por tags...' onChange={(e) => setQuery(e.target.value)}/>
@@ -32,7 +37,7 @@ const Home = () => {
       <div>
         {loading && <p>Carregando...</p>}  
         
-        {posts && posts.map((post) => <h3>{post.title}</h3>)}
+        {posts && posts.map((post) => <PostDetail key={post.id} post={post} />)}
 
         {posts && posts.length === 0 && (
           <div className={styles.noposts}>

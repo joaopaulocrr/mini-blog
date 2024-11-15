@@ -1,0 +1,33 @@
+.post_detail {
+    margin-bottom: 2em;
+
+
+& img {
+    max-height: 600px;
+}
+
+& h2 {
+    margin-bottom: .4em;
+    
+}
+
+& .createdby {
+    font-size: .8em;
+    font-style: italic;
+    color: #444;
+    margin-bottom: 1em;
+}
+
+& .tags {
+    margin-bottom: 1.2em;
+    display: flex;
+
+    & p {
+        margin-right: .5em;
+    }
+
+    & span {
+        font-weight: bold;
+    }
+}
+}
