@@ -24,12 +24,9 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
             setLoading(true)
 
             const collectionRef = await collection(db, docCollection)
-            let q
-            try {
-                
 
-                //busca
-                //dashboard
+            try {
+                let q
 
                 if(search) {
                     q = await query(collectionRef,
